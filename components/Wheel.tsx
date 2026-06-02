@@ -12,7 +12,7 @@ interface WheelProps {
 }
 
 const FULL_CIRCLE = Math.PI * 2;
-const GOLD = "#FFDE3D";
+const RING_COLOR = "#e0e8ff";
 const SPIN_DURATION = 5000;
 const FULL_ROTATIONS = 7;
 const FREE_SPIN_SPEED = 0.006; // radians per frame
@@ -92,9 +92,9 @@ export default function Wheel({ targetIndex, spinning, freeSpin, onSpinComplete,
 
     // Outer glow — stays within canvas bounds
     const glowGradient = ctx.createRadialGradient(cx, cy, radius * 0.7, cx, cy, radius + 16);
-    glowGradient.addColorStop(0, "rgba(255, 222, 61, 0)");
-    glowGradient.addColorStop(0.7, "rgba(255, 222, 61, 0.12)");
-    glowGradient.addColorStop(1, "rgba(255, 222, 61, 0.4)");
+    glowGradient.addColorStop(0, "rgba(100, 150, 255, 0)");
+    glowGradient.addColorStop(0.7, "rgba(100, 150, 255, 0.1)");
+    glowGradient.addColorStop(1, "rgba(100, 150, 255, 0.3)");
     ctx.beginPath();
     ctx.arc(cx, cy, radius + 16, 0, FULL_CIRCLE);
     ctx.fillStyle = glowGradient;
@@ -111,15 +111,15 @@ export default function Wheel({ targetIndex, spinning, freeSpin, onSpinComplete,
       ctx.arc(cx, cy, radius, startAngle, endAngle);
       ctx.closePath();
 
-      // Jackpot segment (index 0) gets a vivid amber gradient
+      // Jackpot segment (index 0) gets a vivid bright-blue gradient
       if (i === 0) {
         const innerX = cx + Math.cos(midAngle) * radius * 0.15;
         const innerY = cy + Math.sin(midAngle) * radius * 0.15;
         const outerX = cx + Math.cos(midAngle) * radius;
         const outerY = cy + Math.sin(midAngle) * radius;
         const jackpotGrad = ctx.createLinearGradient(innerX, innerY, outerX, outerY);
-        jackpotGrad.addColorStop(0, "#7a2e00");
-        jackpotGrad.addColorStop(1, "#d4600a");
+        jackpotGrad.addColorStop(0, "#1e3aaa");
+        jackpotGrad.addColorStop(1, "#4b78f0");
         ctx.fillStyle = jackpotGrad;
       } else {
         ctx.fillStyle = seg.color;
@@ -127,17 +127,16 @@ export default function Wheel({ targetIndex, spinning, freeSpin, onSpinComplete,
 
       ctx.fill();
 
-      // Ultra-thin white separator — clean, borderless look
-      ctx.strokeStyle = "rgba(255, 255, 255, 0.15)";
+      ctx.strokeStyle = "rgba(255, 255, 255, 0.25)";
       ctx.lineWidth = 0.75;
       ctx.stroke();
     });
 
     // Depth overlay: darker at center, adds 3D feel
     const depthGradient = ctx.createRadialGradient(cx, cy, 0, cx, cy, radius);
-    depthGradient.addColorStop(0, "rgba(0, 20, 0, 0.5)");
-    depthGradient.addColorStop(0.4, "rgba(0, 20, 0, 0.18)");
-    depthGradient.addColorStop(1, "rgba(0, 80, 0, 0.04)");
+    depthGradient.addColorStop(0, "rgba(0, 10, 40, 0.5)");
+    depthGradient.addColorStop(0.4, "rgba(0, 10, 40, 0.18)");
+    depthGradient.addColorStop(1, "rgba(0, 30, 80, 0.04)");
     ctx.beginPath();
     ctx.arc(cx, cy, radius, 0, FULL_CIRCLE);
     ctx.fillStyle = depthGradient;
@@ -224,25 +223,25 @@ export default function Wheel({ targetIndex, spinning, freeSpin, onSpinComplete,
       ctx.restore();
     });
 
-    // Outer ring — single crisp gold border + inner accent
+    // Outer ring — white-blue border + inner accent
     ctx.shadowBlur = 0;
     ctx.beginPath();
     ctx.arc(cx, cy, radius, 0, FULL_CIRCLE);
-    ctx.strokeStyle = GOLD;
+    ctx.strokeStyle = RING_COLOR;
     ctx.lineWidth = 6;
     ctx.stroke();
 
     ctx.beginPath();
     ctx.arc(cx, cy, radius - 8, 0, FULL_CIRCLE);
-    ctx.strokeStyle = "rgba(255, 222, 61, 0.35)";
+    ctx.strokeStyle = "rgba(200, 220, 255, 0.3)";
     ctx.lineWidth = 1;
     ctx.stroke();
 
     // Glassmorphic center button
-    // Dark forest green base
+    // Dark navy base
     ctx.beginPath();
     ctx.arc(cx, cy, 30, 0, FULL_CIRCLE);
-    ctx.fillStyle = "#071d07";
+    ctx.fillStyle = "#0d1854";
     ctx.fill();
 
     // Glass shimmer arc (top-left highlight)
@@ -254,12 +253,12 @@ export default function Wheel({ targetIndex, spinning, freeSpin, onSpinComplete,
     ctx.stroke();
     ctx.restore();
 
-    // Gold border ring with glow
-    ctx.shadowColor = "rgba(255, 222, 61, 0.65)";
+    // White border ring with blue glow
+    ctx.shadowColor = "rgba(99, 150, 255, 0.65)";
     ctx.shadowBlur = 10;
     ctx.beginPath();
     ctx.arc(cx, cy, 30, 0, FULL_CIRCLE);
-    ctx.strokeStyle = GOLD;
+    ctx.strokeStyle = "rgba(255, 255, 255, 0.85)";
     ctx.lineWidth = 2.5;
     ctx.stroke();
     ctx.shadowBlur = 0;
@@ -267,7 +266,7 @@ export default function Wheel({ targetIndex, spinning, freeSpin, onSpinComplete,
     // Inner subtle ring
     ctx.beginPath();
     ctx.arc(cx, cy, 21, 0, FULL_CIRCLE);
-    ctx.strokeStyle = "rgba(255, 222, 61, 0.3)";
+    ctx.strokeStyle = "rgba(200, 220, 255, 0.3)";
     ctx.lineWidth = 1;
     ctx.stroke();
   }, [segments, SEGMENT_ANGLE]);

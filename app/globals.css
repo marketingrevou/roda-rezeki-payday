@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --navy: #0a1f0a;
+  --navy: #0d1854;
   --gold: #FFDE3D;
   --gold-dark: #B8860B;
   --cream: #F5E6C8;
@@ -58,45 +58,25 @@ body {
   background-clip: text;
 }
 
-/* Animated gold glow border */
+/* Animated blue glow border */
 @keyframes borderGlow {
-  0%, 100% { box-shadow: 0 0 10px rgba(255, 222, 61, 0.3), 0 0 0 1px rgba(255,222,61,0.3); }
-  50% { box-shadow: 0 0 25px rgba(255, 222, 61, 0.6), 0 0 0 1px rgba(255,222,61,0.6); }
+  0%, 100% { box-shadow: 0 0 10px rgba(99, 150, 255, 0.3), 0 0 0 1px rgba(99,150,255,0.3); }
+  50% { box-shadow: 0 0 25px rgba(99, 150, 255, 0.6), 0 0 0 1px rgba(99,150,255,0.6); }
 }
 
 .glow-border {
   animation: borderGlow 2.5s ease-in-out infinite;
 }
 
-/* Ketupat pendulum sway */
-@keyframes ketupat-sway {
-  0%, 100% { transform: rotate(-4deg); }
-  50% { transform: rotate(4deg); }
-}
-
-.ketupat-sway {
-  animation: ketupat-sway 4s ease-in-out infinite;
-  transform-origin: top center;
-}
-
-/* Mosque breathing fade */
-@keyframes mosque-fade {
-  0%, 100% { opacity: 0.12; }
-  50% { opacity: 0.18; }
-}
-
-.mosque-fade {
-  animation: mosque-fade 4s ease-in-out infinite;
-}
 
 /* Scroll bar styling */
 ::-webkit-scrollbar {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #0a1f0a;
+  background: #0d1854;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 222, 61, 0.4);
+  background: rgba(99, 150, 255, 0.4);
   border-radius: 3px;
 }

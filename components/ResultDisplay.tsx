@@ -21,7 +21,7 @@ export default function ResultDisplay({ result, email, onClose }: ResultDisplayP
   return (
     <div
       className="fixed inset-0 z-50 flex items-center justify-center px-4"
-      style={{ backgroundColor: "rgba(5, 15, 5, 0.92)" }}
+      style={{ backgroundColor: "rgba(13, 24, 84, 0.95)" }}
     >
       {/* Floating stars */}
       {[...Array(8)].map((_, i) => (
@@ -42,9 +42,9 @@ export default function ResultDisplay({ result, email, onClose }: ResultDisplayP
       <div
         className="relative w-full max-w-md rounded-2xl p-8 text-center"
         style={{
-          background: "linear-gradient(135deg, #0a1f0a 0%, #0d2e0d 50%, #0a1f0a 100%)",
-          border: "2px solid #FFDE3D",
-          boxShadow: "0 0 40px rgba(255, 222, 61, 0.4), 0 20px 60px rgba(0,0,0,0.6)",
+          background: "linear-gradient(135deg, #0d1854 0%, #1e2d8a 50%, #0d1854 100%)",
+          border: "2px solid rgba(200, 220, 255, 0.6)",
+          boxShadow: "0 0 40px rgba(99, 150, 255, 0.35), 0 20px 60px rgba(0,0,0,0.6)",
           transform: visible ? "scale(1) translateY(0)" : "scale(0.8) translateY(20px)",
           opacity: visible ? 1 : 0,
           transition: "all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)",
@@ -52,13 +52,13 @@ export default function ResultDisplay({ result, email, onClose }: ResultDisplayP
       >
         {/* Geometric corner decorations */}
         <div className="absolute top-3 left-3 w-8 h-8 opacity-40"
-          style={{ borderTop: "2px solid #FFDE3D", borderLeft: "2px solid #FFDE3D" }} />
+          style={{ borderTop: "2px solid rgba(200,220,255,0.6)", borderLeft: "2px solid rgba(200,220,255,0.6)" }} />
         <div className="absolute top-3 right-3 w-8 h-8 opacity-40"
-          style={{ borderTop: "2px solid #FFDE3D", borderRight: "2px solid #FFDE3D" }} />
+          style={{ borderTop: "2px solid rgba(200,220,255,0.6)", borderRight: "2px solid rgba(200,220,255,0.6)" }} />
         <div className="absolute bottom-3 left-3 w-8 h-8 opacity-40"
-          style={{ borderBottom: "2px solid #FFDE3D", borderLeft: "2px solid #FFDE3D" }} />
+          style={{ borderBottom: "2px solid rgba(200,220,255,0.6)", borderLeft: "2px solid rgba(200,220,255,0.6)" }} />
         <div className="absolute bottom-3 right-3 w-8 h-8 opacity-40"
-          style={{ borderBottom: "2px solid #FFDE3D", borderRight: "2px solid #FFDE3D" }} />
+          style={{ borderBottom: "2px solid rgba(200,220,255,0.6)", borderRight: "2px solid rgba(200,220,255,0.6)" }} />
 
         {/* Icon */}
         <div
@@ -73,7 +73,7 @@ export default function ResultDisplay({ result, email, onClose }: ResultDisplayP
 
         {/* Selamat */}
         <p className="text-sm font-semibold tracking-widest uppercase mb-2"
-          style={{ color: "#FFDE3D", letterSpacing: "0.2em" }}>
+          style={{ color: "#93c5fd", letterSpacing: "0.2em" }}>
           Selamat! 🎉
         </p>
 
@@ -83,13 +83,13 @@ export default function ResultDisplay({ result, email, onClose }: ResultDisplayP
         <div
           className="my-5 px-4 py-4 rounded-xl"
           style={{
-            background: "linear-gradient(135deg, rgba(255,222,61,0.15), rgba(255,222,61,0.05))",
-            border: "1px solid rgba(255, 222, 61, 0.5)",
+            background: "linear-gradient(135deg, rgba(99,150,255,0.18), rgba(99,150,255,0.06))",
+            border: "1px solid rgba(99, 150, 255, 0.45)",
           }}
         >
           <p
             className="text-2xl font-bold leading-tight"
-            style={{ color: "#FFDE3D" }}
+            style={{ color: "#ffffff" }}
           >
             {result}
           </p>
@@ -101,17 +101,16 @@ export default function ResultDisplay({ result, email, onClose }: ResultDisplayP
         </p>
 
         <p className="text-xs text-blue-300 mb-6 leading-relaxed">
-          Hubungi tim RevoU untuk menggunakan bonusmu.<br />
-          Selamat Idul Adha! 🐑
+          Hubungi tim RevoU untuk menggunakan bonusmu.
         </p>
 
         {onClose && (
           <button
             onClick={onClose}
-            className="w-full py-3 rounded-xl font-bold text-[#0a1f0a] transition-all hover:brightness-110 active:scale-95"
+            className="w-full py-3 rounded-xl font-bold text-white transition-all hover:brightness-110 active:scale-95"
             style={{
-              background: "linear-gradient(135deg, #FFDE3D, #FFB800)",
-              boxShadow: "0 4px 15px rgba(255, 222, 61, 0.4)",
+              background: "linear-gradient(135deg, #60a5fa, #2563eb)",
+              boxShadow: "0 4px 15px rgba(37, 99, 235, 0.4)",
             }}
           >
             Tutup
